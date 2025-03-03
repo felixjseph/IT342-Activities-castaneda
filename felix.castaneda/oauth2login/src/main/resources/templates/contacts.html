@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Google Contacts</title>
+</head>
+<body>
+<h1>Google Contacts</h1>
+<table border="1">
+    <tr>
+        <th>Display Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+    </tr>
+    <tr th:each="contact : ${contacts}">
+        <td th:text="${contact.displayName}"></td>
+        <td th:text="${contact.email}"></td>
+        <td th:text="${contact.phoneNumber}"></td>
+    </tr>
+</table>
+</body>
+</html>

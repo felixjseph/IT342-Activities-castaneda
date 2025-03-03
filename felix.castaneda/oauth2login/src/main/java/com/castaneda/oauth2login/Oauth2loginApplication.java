@@ -11,3 +11,4 @@ public class Oauth2loginApplication {
 		System.out.println("Success");
 	}
 }
+
