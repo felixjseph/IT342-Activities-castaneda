@@ -2,72 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Google Contacts</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background-color: #007bff;
-            color: white;
-        }
-        .logout-container {
-            text-align: right;
-            margin-bottom: 10px;
-        }
-        .logout-button {
-            background-color: red;
-            color: white;
-            padding: 8px 12px;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            border-radius: 5px;
-        }
-        .logout-button:hover {
-            background-color: darkred;
-        }
-        .add-button {
-            background-color: #28a745;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        .add-button:hover {
-            background-color: #218838;
-        }
-        .actions a {
-            color: #007bff;
-            text-decoration: none;
-            margin: 0 5px;
-        }
-        .actions a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -77,8 +12,10 @@
             <button type="submit" class="logout-button">Logout</button>
         </form>
     </div>
-
-    <h2>Your Google Contacts</h2>
+    
+    <div class="header">
+    <h2>Google Contacts</h2>
+    </div>
     <button class="add-button" onclick="window.location.href='/contacts/add'">Add Contact</button>
 
     <table>

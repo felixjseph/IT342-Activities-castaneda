@@ -1,11 +1,29 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light grey background */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-h2 {
-    color: #333;
+.container {
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.header h2 {
+    font-size: 28px;
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
 table {
@@ -15,12 +33,72 @@ table {
 }
 
 th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
+    padding: 12px 15px;
     text-align: left;
+    border-bottom: 1px solid #e9ecef; /* Lighter border */
 }
 
 th {
-    background-color: #4CAF50;
+    background-color: #f1f3f5; /* Very light grey for header */
+    color: #495057;
+    font-weight: 500;
+}
+
+.logout-container {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.logout-button {
+    background-color: #dc3545; /* Red logout button */
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+.add-button {
+    background-color: #28a745; /* Green add button */
     color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-button:hover {
+    background-color: #218838;
+}
+
+.actions a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+.actions a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
 }

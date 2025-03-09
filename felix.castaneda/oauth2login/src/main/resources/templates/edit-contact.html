@@ -1,16 +1,121 @@
-<th:block th:if="${contact.resourceName}">
-    <form th:action="@{/contacts/edit}" method="post" onsubmit="fillEmptyFields(event)">
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-        <input type="hidden" name="id" th:value="${#uris.escapePath(contact.resourceName)}" />
-        <input type="hidden" name="etag" th:value="${contact.etag}" />
-        
-        Name: <input type="text" id="name" name="name" th:value="${contact.name} " required
-                     th:attr="data-original=${contact.name}"><br>
-        Email: <input type="email" id="email" name="email" th:value="${contact.email}" required
-                      th:attr="data-original=${contact.email}"><br>
-        Phone Number: <input type="tel" id="phoneNumber" name="phoneNumber" th:value="${contact.phoneNumber}" required
-                             th:attr="data-original=${contact.phoneNumber}"><br>
-        
-        <button type="submit" onclick="return confirm('Save changes?')">Update Contact</button>
-    </form>
-</th:block>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Contact</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .container {
+            max-width: 500px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        .header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .header h2 {
+            font-size: 28px;
+            color: #1a73e8;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #5f6368;
+            font-size: 16px;
+        }
+
+
+        .edit-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #202124;
+        }
+
+        .edit-form input[type="text"],
+        .edit-form input[type="email"],
+        .edit-form input[type="tel"] {
+            width: calc(100% - 22px); /* Adjust for padding and border */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .edit-form button[type="submit"] {
+            flex: 1;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .edit-form button[type="back"] {
+            background-color: transparent;
+            color: #1a73e8;
+            border: 1px solid #ced4da;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .edit-form button[type="submit"]:hover {
+            background-color: #1557b0;
+        }
+
+        .edit-form button[type="back"]:hover {
+            background-color: #f1f3f4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="edit-form">
+        <div class="header">
+            <h2>Edit Contact</h2>
+            <p>Enter correct details to edit this contact</p>
+        </div>
+
+        <th:block th:if="${contact.resourceName}">
+            <form th:action="@{/contacts/edit}" method="post" onsubmit="fillEmptyFields(event)">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <input type="hidden" name="id" th:value="${#uris.escapePath(contact.resourceName)}" />
+                <input type="hidden" name="etag" th:value="${contact.etag}" />
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" th:value="${contact.name}" required
+                       th:attr="data-original=${contact.name}">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" th:value="${contact.email ?: 'No Email'}"
+                       th:attr="data-original=${contact.email}">
+
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" th:value="${contact.phoneNumber}" required
+                       th:attr="data-original=${contact.phoneNumber}">
+
+                <button type="submit" onclick="return confirm('Save changes?')">Update Contact</button>
+                <button type="back" onclick="window.location.href='/contacts'">Back</button>
+            </form>
+        </th:block>
+    </div>
+</div>
+
+</body>
+</html>

@@ -71,15 +71,42 @@ public class GoogleContactsService {
 
     // ✅ Fetch a single contact (Now includes phone & birthday)
     public Contact getContactById(String resourceName, String accessToken) {
-        String url = "https://people.googleapis.com/v1/" + resourceName + "?personFields=names,emailAddresses,phoneNumbers,birthdays";
-
+        String url = "https://people.googleapis.com/v1/" + resourceName + "?personFields=names,emailAddresses,phoneNumbers,birthdays,metadata";
+    
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + accessToken);
         HttpEntity<String> entity = new HttpEntity<>(headers);
-
+    
         try {
-            ResponseEntity<Contact> response = restTemplate.exchange(url, HttpMethod.GET, entity, Contact.class);
-            return response.getBody();
+            ResponseEntity<GoogleContactsResponse.Person> response = restTemplate.exchange(url, HttpMethod.GET, entity, GoogleContactsResponse.Person.class);
+            GoogleContactsResponse.Person person = response.getBody();
+    
+            if (person == null) {
+                return null;
+            }
+    
+            String name = (person.getNames() != null && !person.getNames().isEmpty())
+                    ? person.getNames().get(0).getDisplayName() : "Unknown";
+            String email = (person.getEmailAddresses() != null && !person.getEmailAddresses().isEmpty())
+                    ? person.getEmailAddresses().get(0).getValue() : "No Email";
+            String phone = (person.getPhoneNumbers() != null && !person.getPhoneNumbers().isEmpty())
+                    ? person.getPhoneNumbers().get(0).getValue() : "No Phone";
+    
+            String birthday = "No Birthday";
+            if (person.getBirthdays() != null && !person.getBirthdays().isEmpty()) {
+                GoogleContactsResponse.Person.Date date = person.getBirthdays().get(0).getDate();
+                if (date != null) {
+                    birthday = (date.getYear() != null ? date.getYear() + "-" : "") +
+                            String.format("%02d", date.getMonth()) + "-" +
+                            String.format("%02d", date.getDay());
+                }
+            }
+    
+            // Access etag directly from the Person object
+            String etag = person.getEtag(); 
+    
+            return new Contact(person.getResourceName(), etag, name, email, phone, birthday);
+    
         } catch (Exception e) {
             System.out.println("❌ Error fetching contact: " + e.getMessage());
             return null;
