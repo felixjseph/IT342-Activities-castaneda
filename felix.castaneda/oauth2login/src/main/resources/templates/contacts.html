@@ -12,31 +12,32 @@
             <button type="submit" class="logout-button">Logout</button>
         </form>
     </div>
-    
+
     <div class="header">
-    <h2>Google Contacts</h2>
+        <h2>Google Contacts Manager</h2>
     </div>
+
     <button class="add-button" onclick="window.location.href='/contacts/add'">Add Contact</button>
 
     <table>
         <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
-            <tr th:each="contact : ${contacts}">
-                <td th:text="${contact.name ?: 'Unknown'}"></td>
-                <td th:text="${contact.email ?: 'No Email'}"></td>
-                <td th:text="${contact.phoneNumber ?: 'No Phone'}"></td>
-                <td class="actions" th:if="${contact.resourceName}">
-                    <a th:href="@{/contacts/edit(id=${#uris.escapeQueryParam(contact.resourceName)})}">Edit</a> |
-                    <a th:href="@{/contacts/delete(id=${contact.resourceName})}" onclick="return confirm('Are you sure?')">Delete</a>
-                </td>
-            </tr>
+        <tr th:each="contact : ${contacts}">
+            <td th:text="${contact.name ?: 'Unknown'}"></td>
+            <td th:text="${contact.email ?: 'No Email'}"></td>
+            <td th:text="${contact.phoneNumber ?: 'No Phone'}"></td>
+            <td class="actions" th:if="${contact.resourceName}">
+                <a th:href="@{/contacts/edit(id=${#uris.escapeQueryParam(contact.resourceName)})}">Edit</a> |
+                <a th:href="@{/contacts/delete(id=${contact.resourceName})}" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>

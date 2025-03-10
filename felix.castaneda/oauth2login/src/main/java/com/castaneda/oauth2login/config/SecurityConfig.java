@@ -18,7 +18,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/", "/login").permitAll()
-                .requestMatchers("/contacts/add", "/contacts/**").authenticated()  
+                .requestMatchers("/contacts/add", "/contacts/**").authenticated()
                 .anyRequest().authenticated()
             )
             .oauth2Login(oauth2 -> oauth2

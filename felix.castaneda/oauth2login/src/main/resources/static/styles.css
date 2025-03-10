@@ -1,9 +1,10 @@
+/* Dark Mode Styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa; /* Light grey background */
-    color: #333;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,19 +14,20 @@ body {
 .container {
     width: 90%;
     max-width: 800px;
-    background-color: #fff;
+    background-color: #1e1e1e; /* Slightly lighter dark background */
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow */
 }
 
 .header h2 {
     font-size: 28px;
-    color: #495057;
+    color: #ffffff; /* White for visibility */
     font-weight: 600;
     margin-bottom: 20px;
 }
 
+/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -35,22 +37,27 @@ table {
 th, td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #e9ecef; /* Lighter border */
+    border-bottom: 1px solid #333; /* Darker border */
 }
 
 th {
-    background-color: #f1f3f5; /* Very light grey for header */
-    color: #495057;
+    background-color: #292929; /* Dark gray for header */
+    color: #f0f0f0;
     font-weight: 500;
 }
 
+td {
+    background-color: #222; /* Darker row background */
+}
+
+/* Buttons */
 .logout-container {
     text-align: right;
     margin-bottom: 20px;
 }
 
 .logout-button {
-    background-color: #dc3545; /* Red logout button */
+    background-color: #b22222; /* Dark red logout button */
     color: #fff;
     padding: 8px 15px;
     border: none;
@@ -61,11 +68,11 @@ th {
 }
 
 .logout-button:hover {
-    background-color: #c82333;
+    background-color: #8b0000;
 }
 
 .add-button {
-    background-color: #28a745; /* Green add button */
+    background-color: #198754; /* Dark green add button */
     color: white;
     border: none;
     padding: 12px 20px;
@@ -77,18 +84,18 @@ th {
 }
 
 .add-button:hover {
-    background-color: #218838;
+    background-color: #145a32;
 }
 
 .actions a {
-    color: #007bff;
+    color: #3498db; /* Light blue links */
     text-decoration: none;
     margin: 0 8px;
     transition: color 0.3s ease;
 }
 
 .actions a:hover {
-    color: #0056b3;
+    color: #1e88e5;
     text-decoration: underline;
 }
 

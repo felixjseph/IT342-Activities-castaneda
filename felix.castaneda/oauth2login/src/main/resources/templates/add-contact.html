@@ -14,29 +14,23 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #121212;
+            color: #e0e0e0;
             line-height: 1.6;
             padding: 20px;
-
-            /* Center content vertically and horizontally */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
 
-        /* Container */
         .container {
-            width: 500px; /* Set a fixed width */
-            background: white;
+            width: 500px;
+            background: #1e1e1e;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box; /* Include padding and border in the element's total width and height */
         }
 
-        /* Header */
         .header {
             margin-bottom: 30px;
             text-align: center;
@@ -44,17 +38,16 @@
 
         .header h2 {
             font-size: 28px;
-            color: #1a73e8;
+            color: #bb86fc;
             font-weight: 600;
             margin-bottom: 10px;
         }
 
         .header p {
-            color: #5f6368;
+            color: #bbb;
             font-size: 16px;
         }
 
-        /* Form styles */
         .form-group {
             margin-bottom: 20px;
         }
@@ -63,29 +56,23 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: #202124;
+            color: #e0e0e0;
         }
 
         input {
             width: 100%;
             padding: 12px 16px;
-            border: 1px solid #dadce0;
+            background-color: #333;
+            color: white;
+            border: 1px solid #444;
             border-radius: 4px;
             font-size: 16px;
-            transition: border 0.2s, box-shadow 0.2s;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #1a73e8;
-            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
         }
 
         input::placeholder {
-            color: #80868b;
+            color: #bbb;
         }
 
-        /* Button styles */
         .button-group {
             display: flex;
             gap: 15px;
@@ -94,7 +81,7 @@
 
         .submit-button {
             flex: 1;
-            background-color: #1a73e8;
+            background-color: #bb86fc;
             color: white;
             border: none;
             padding: 12px 20px;
@@ -102,30 +89,27 @@
             font-size: 16px;
             font-weight: 500;
             cursor: pointer;
-            transition: background-color 0.2s;
         }
 
         .submit-button:hover {
-            background-color: #1557b0;
+            background-color: #9e6ad6;
         }
 
         .cancel-button {
             background-color: transparent;
-            color: #1a73e8;
-            border: 1px solid #dadce0;
+            color: #bb86fc;
+            border: 1px solid #bb86fc;
             padding: 12px 20px;
             border-radius: 4px;
             font-size: 16px;
             font-weight: 500;
             cursor: pointer;
-            transition: background-color 0.2s;
         }
 
         .cancel-button:hover {
-            background-color: #f1f3f4;
+            background-color: #333;
         }
 
-        /* Responsive styles */
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
